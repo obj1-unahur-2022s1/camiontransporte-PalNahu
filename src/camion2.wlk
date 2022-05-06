@@ -1,10 +1,13 @@
-import cosas.*
+import cosas2.*
 
 object camion {
 	var cosas = []
 	
-	method cargar(cosa) = cosas.add(cosa)
-		
+	method cargar(cosa){
+		cosas.add(cosa)
+		cosa.consecuenciaDeCarga()
+	}
+	
 	method descargar(cosa) = cosas.remove(cosa)
 	
 	method todoPesoPar() = cosas.all({e => e.peso().even()})
@@ -19,7 +22,7 @@ object camion {
 	
 	method excedidoDePeso() {return self.pesoTotal() > 2500}
 	
-	method objetosQueSuperanPeligrosidad(nivel) = cosas.filter({e => e.nivelDePeligrosidad() >= nivel})
+	method objetosQueSuperanPeligrosidad(nivel) = cosas.filter({e => e.nivelDePeligrosidad() > nivel})
 	
 	method objetosMasPeligrososQue(cosa) = self.objetosQueSuperanPeligrosidad(cosa.nivelDePeligrosidad())
 	

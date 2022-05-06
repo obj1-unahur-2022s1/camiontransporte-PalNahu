@@ -1,0 +1,34 @@
+import camion2.*
+import cosas2.*
+
+describe "Tests de cosas"{
+	test "Agregar ladrillos,consultar el peso y total de bultos"{
+		paqueteLadrillos.cantidadDeLadrillos(400)
+		assert.equals(800, paqueteLadrillos.peso())
+		assert.equals(3, paqueteLadrillos.totalBultos())
+	}
+	
+	test "Carga batería antiaérea y consulta nivel de peligrosidad antes y después. Luego consulta los bultos"{
+		assert.equals(0,bateriaAntiarea.nivelDePeligrosidad())
+		bateriaAntiarea.cambiarEstadoDeMisiles()
+		assert.equals(100,bateriaAntiarea.nivelDePeligrosidad())
+		assert.equals(2, bateriaAntiarea.totalBultos())
+	}
+	
+	test "Colocar los residuos radioactivos de 30kg en el enbalaje de seguridad"{
+		residuosRadioactivos.peso(30)
+		embalajeSeguridad.cosa(residuosRadioactivos)
+		assert.equals(30, embalajeSeguridad.peso())
+		assert.equals(2, embalajeSeguridad.totalBultos())
+	}
+	
+	test "Agregar knightRider, bumblebee en modo auto y 30 kg de arena al contenedor. Consulta peso y total de bultos luego"{
+		contenedor.agregarCosasAlContenedor(knightRider)
+		contenedor.agregarCosasAlContenedor(bumblebee)
+		arena.peso(30)
+		contenedor.agregarCosasAlContenedor(arena)
+		assert.that(bumblebee.estaEnModoAuto())
+		assert.equals(1430, contenedor.peso())
+		assert.equals(5, contenedor.totalBultos())
+	}
+}

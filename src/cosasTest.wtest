@@ -1,2 +1,31 @@
 import camion.*
 import cosas.*
+
+describe "Tests de cosas"{
+	test "Agregar ladrillos y consultar el peso"{
+		paqueteLadrillos.cantidadDeLadrillos(20)
+		assert.equals(40, paqueteLadrillos.peso())
+	}
+	
+	test "Descargar batería antiaérea y consultar nivel de peligrosidad antes y después"{
+		assert.equals(100,bateriaAntiarea.nivelDePeligrosidad())
+		bateriaAntiarea.cambiarEstadoDeMisiles()
+		assert.equals(0,bateriaAntiarea.nivelDePeligrosidad())
+	}
+	
+	test "Colocar los residuos radioactivos de 30kg en el enbalaje de seguridad"{
+		residuosRadioactivos.peso(30)
+		embalajeSeguridad.cosa(residuosRadioactivos)
+		assert.equals(30, embalajeSeguridad.peso())
+	}
+	
+	test "Agregar knightRider, bumblebee en modo auto y 30 kg de arena al contenedor. Consulta peso luego"{
+		contenedor.agregarCosasAlContenedor(knightRider)
+		contenedor.agregarCosasAlContenedor(bumblebee)
+		arena.peso(30)
+		contenedor.agregarCosasAlContenedor(arena)
+		assert.that(bumblebee.estaEnModoAuto())
+		assert.equals(1430, contenedor.peso())
+		
+	}
+}

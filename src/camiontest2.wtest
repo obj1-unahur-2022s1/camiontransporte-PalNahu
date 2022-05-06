@@ -1,0 +1,34 @@
+import camion2.*
+import cosas2.*
+
+describe "Test de camion"{
+	
+	test "Carga el camion con bumblebee en modo robot, arena con 150kg, batería antiarea con misiles cargados,
+				y el embalaje de seguridad con un paquete de 80 ladrillos dentro, luego verifica el peso del camion"{
+					//prepara las cosas a cargar
+					bumblebee.cambiarARobot()
+					arena.peso(150)
+					paqueteLadrillos.cantidadDeLadrillos(80)
+					embalajeSeguridad.cosa(paqueteLadrillos)
+					bateriaAntiarea.cambiarEstadoDeMisiles()
+					
+					//verificación de que las cosas sean las correctas
+					assert.notThat(bumblebee.estaEnModoAuto())
+					assert.equals(150, arena.peso())
+					assert.that(bateriaAntiarea.tieneMisilesCargados())
+					assert.equals(80, paqueteLadrillos.cantidadDeLadrillos())
+					assert.equals(paqueteLadrillos, embalajeSeguridad.cosa())
+					
+					//carga las cosas en el camión
+					camion.cargar(bumblebee)
+					camion.cargar(arena)
+					camion.cargar(bateriaAntiarea)
+					camion.cargar(embalajeSeguridad)
+					
+					//verificación de peso
+					assert.equals(2280, camion.pesoTotal())
+					
+				}
+				
+				
+}
