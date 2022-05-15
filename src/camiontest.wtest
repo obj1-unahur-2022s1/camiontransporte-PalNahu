@@ -1,3 +1,10 @@
+/*
+ * test: Bien, aunque te convendría dividirlo en varios test porque en caso de 
+ * encontrar algún error sería bastante dificil de encontrar el motivo.
+ * Tal vez podrías usar el método initialize() para preparar los objetos y luego
+ * desarrollar los test.
+ */
+
 import camion.*
 import cosas.*
 
