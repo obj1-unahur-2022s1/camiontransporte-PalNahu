@@ -1,3 +1,7 @@
+/*
+ * camion2: Bien! Correcta la reutilización del método objetosQueSuperanPeligrosidad(nivel) en el
+ * método objetosMasPeligrososQue(cosa)
+ */
 import cosas2.*
 
 object camion {
